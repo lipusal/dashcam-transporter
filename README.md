@@ -41,3 +41,10 @@ Application running on a raspberry pi (or other debian based platforms), to tran
 The script controls the raspberrys leds
 - Blinking LEDs - Waiting for connections to dashcam of home network (Will also blink if there is nothing to transfer)
 - LEDs on - Transfer is currently running
+
+---
+
+# References
+- https://dashcamtalk.com/forum/threads/how-to-access-the-a129-over-wi-fi-without-the-viofo-app.37279/post-445948
+- [WiFi manual](./docs/Survey3-WIFI-Manual.pdf) (obtained from the same forum above)
+- Decompiled [Viofo app](https://play.google.com/store/apps/details?id=com.viofo.viofo)
