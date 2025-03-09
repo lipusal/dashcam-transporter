@@ -1,4 +1,4 @@
-import disk from 'diskusage'
+import { statfsSync } from 'fs'
 import { Settings } from './Settings'
 
 export const sleep = async (delayMs: number) => {
@@ -8,7 +8,8 @@ export const sleep = async (delayMs: number) => {
 }
 
 export const enoughSpaceAvailable = async (requestedBytes: number) => {
-  const result = await disk.check(await Settings.getDownloadDirectory())
   const alwaysFreeSpace = 100 * 1024 * 1024 // 100MB
-  return (result.free - requestedBytes - alwaysFreeSpace) > 0
+  // Based on https://stackoverflow.com/a/75578092
+  const result = statfsSync(await Settings.getDownloadDirectory())
+  return ((result.bsize * result.bavail) - requestedBytes - alwaysFreeSpace) > 0
 }
