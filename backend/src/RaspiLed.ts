@@ -20,11 +20,13 @@ export class RaspiLED {
       'BCM2708',
       'BCM2709',
       'BCM2710',
-      'BCM2835', // Raspberry Pi 1 and Zero
-      'BCM2836', // Raspberry Pi 2
-      'BCM2837', // Raspberry Pi 3 (and later Raspberry Pi 2)
+      'BCM2835',   // Raspberry Pi 1 and Zero
+      'BCM2836',   // Raspberry Pi 2
+      'RP3A0',     // Raspberry Pi Zero 2 W
+      'BCM2837',   // Raspberry Pi 3 (and later Raspberry Pi 2)
       'BCM2837B0', // Raspberry Pi 3B+ and 3A+
-      'BCM2711' // Raspberry Pi 4B
+      'BCM2711',   // Raspberry Pi 4B
+      'BCM2712',   // Raspberry Pi 5
     ]
 
     let cpuInfo: string
@@ -47,7 +49,7 @@ export class RaspiLED {
   }
 
   public static initialize () {
-    if (this.isRaspberryPi()) {
+    if (RaspiLED.isRaspberryPi()) {
       fs.writeFileSync('/sys/class/leds/led0/trigger', 'none')
       fs.writeFileSync('/sys/class/leds/led1/trigger', 'none')
     }
@@ -62,7 +64,7 @@ export class RaspiLED {
       RaspiLED.ledStatus = true
     }
 
-    if (this.isRaspberryPi()) {
+    if (RaspiLED.isRaspberryPi()) {
       fs.writeFileSync('/sys/class/leds/led0/brightness', RaspiLED.ledStatus ? '1' : '0')
       fs.writeFileSync('/sys/class/leds/led1/brightness', RaspiLED.ledStatus ? '1' : '0')
     }
