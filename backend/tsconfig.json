@@ -11,7 +11,10 @@
     "resolveJsonModule": true,
     "forceConsistentCasingInFileNames": true,
     "importHelpers": true,
-    "esModuleInterop": true
+    "esModuleInterop": true,
     // "skipLibCheck": true
-  }
+  },
+  "include": [
+    "src/**/*.ts"
+  ]
 }

@@ -73,7 +73,7 @@ export class VIOFO {
         stream.data.pipe(writer)
       })
 
-      writer.on('finish', resolve)
+      writer.on('finish', resolve as () => void)
       writer.on('error', reject)
     })
   }
