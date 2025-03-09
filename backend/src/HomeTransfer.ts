@@ -1,5 +1,5 @@
 import { GlobalState } from './GlobalState'
-import { SMB } from './hometransfert/SMB'
+import { SMB } from './hometransfer/SMB'
 import { RaspiLED } from './RaspiLed'
 
 export class HomeTransfer {
